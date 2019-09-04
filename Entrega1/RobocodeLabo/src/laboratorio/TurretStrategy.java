@@ -3,6 +3,12 @@ import robocode.JuniorRobot;
 
 public class TurretStrategy implements IStrategy
 {
+	@Override
+	public void paint(JuniorRobot robot)
+    {
+        robot.setColors(JuniorRobot.black, JuniorRobot.white, JuniorRobot.black, JuniorRobot.white, JuniorRobot.red);
+    }
+	
     @Override
     public void run(JuniorRobot robot)
     {
@@ -12,7 +18,7 @@ public class TurretStrategy implements IStrategy
     @Override
     public void onScannedRobot(JuniorRobot robot)
     {
-    	while(robot.scannedDistance > 0)
+    	while(robot.scannedDistance > -1)
     	{
     		robot.fire();    		
     	}

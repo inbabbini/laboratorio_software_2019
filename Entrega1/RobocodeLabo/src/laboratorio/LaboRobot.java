@@ -12,9 +12,8 @@ public class LaboRobot extends JuniorRobot
 	@Override
 	public void run()
 	{
-		setColors(black, white, black, white, red);
-		this.strategy.run(this);
-		
+		this.strategy.paint(this);
+		this.strategy.run(this);		
 	}
 
 	/**

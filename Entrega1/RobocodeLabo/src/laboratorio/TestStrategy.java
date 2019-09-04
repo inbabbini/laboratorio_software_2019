@@ -3,6 +3,12 @@ import robocode.JuniorRobot;
 
 public class TestStrategy implements IStrategy
 {
+	@Override
+	public void paint(JuniorRobot robot)
+    {
+        robot.setColors(JuniorRobot.black, JuniorRobot.white, JuniorRobot.black, JuniorRobot.white, JuniorRobot.red);
+    }
+	
     @Override
     public void run(JuniorRobot robot)
     {

@@ -3,6 +3,8 @@ import robocode.*;
 
 public interface IStrategy
 {
+	public void paint(JuniorRobot robot);
+	
     public void run(JuniorRobot robot);
 
     public void onScannedRobot(JuniorRobot robot);
