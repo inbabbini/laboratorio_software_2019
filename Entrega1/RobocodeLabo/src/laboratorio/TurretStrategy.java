@@ -1,32 +1,32 @@
 package laboratorio;
 import robocode.JuniorRobot;
 
-public class TestStrategy implements IStrategy
+public class TurretStrategy implements IStrategy
 {
     @Override
     public void run(JuniorRobot robot)
     {
-        robot.ahead(100);
-        robot.turnGunRight(360);
-        robot.back(100);
-        robot.turnGunRight(360);
+        robot.turnGunRight(5);
     }
 
     @Override
     public void onScannedRobot(JuniorRobot robot)
     {
-        robot.fire(1);
+    	while(robot.scannedDistance > 0)
+    	{
+    		robot.fire();    		
+    	}
     }
 
     @Override
     public void onHitByBullet(JuniorRobot robot)
     {
-        robot.back(10);
+        robot.doNothing();
     }
 
     @Override
     public void onHitWall(JuniorRobot robot)
     {
-        robot.back(20);
+        robot.doNothing();
     }
 }

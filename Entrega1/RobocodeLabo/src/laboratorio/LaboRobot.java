@@ -6,30 +6,24 @@ import robocode.*;
 
 public class LaboRobot extends JuniorRobot
 {
-	private IStrategy strategy = new TestStrategy();
+	//private IStrategy strategy = new TestStrategy();
+	private IStrategy strategy = new TurretStrategy();
 
-	public LaboRobot(IStrategy strategy)
-	{
-		super();
-		this.strategy = strategy;
-	}
-
-	@Override	
+	@Override
 	public void run()
 	{
-		setColors(orange, blue, white, yellow, black);
-
-		while(true)
-		{
-			this.strategy.run(this);
-		}
+		setColors(black, white, black, white, red);
+		this.strategy.run(this);
+		
 	}
 
 	/**
 	 * onScannedRobot: What to do when you see another robot
 	 */
 	@Override
-	public void onScannedRobot() {
+	public void onScannedRobot()
+	{
+		
 		this.strategy.onScannedRobot(this);
 	}
 
@@ -37,7 +31,8 @@ public class LaboRobot extends JuniorRobot
 	 * onHitByBullet: What to do when you're hit by a bullet
 	 */
 	@Override
-	public void onHitByBullet() {
+	public void onHitByBullet()
+	{
 		this.strategy.onHitByBullet(this);
 	}
 	
@@ -45,7 +40,8 @@ public class LaboRobot extends JuniorRobot
 	 * onHitWall: What to do when you hit a wall
 	 */
 	@Override
-	public void onHitWall() {
+	public void onHitWall()
+	{
 		this.strategy.onHitWall(this);
 	}	
 }
