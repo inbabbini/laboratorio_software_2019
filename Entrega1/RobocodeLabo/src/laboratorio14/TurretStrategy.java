@@ -1,4 +1,4 @@
-package laboratorio;
+package laboratorio14;
 import robocode.JuniorRobot;
 
 public class TurretStrategy implements IStrategy
@@ -20,19 +20,22 @@ public class TurretStrategy implements IStrategy
     {
     	while(robot.scannedDistance > -1)
     	{
-    		robot.fire();    		
+    		robot.turnGunTo(robot.scannedAngle);
+    		robot.fire();
+    		//robot.turnGunLeft(1);
+    		//robot.turnGunRight(1);
     	}
     }
 
     @Override
     public void onHitByBullet(JuniorRobot robot)
     {
-        robot.doNothing();
+        robot.back(100);
     }
 
     @Override
     public void onHitWall(JuniorRobot robot)
     {
-        robot.doNothing();
+        robot.ahead(100);
     }
 }

@@ -1,4 +1,4 @@
-package laboratorio;
+package laboratorio14;
 import robocode.JuniorRobot;
 
 public class BlackMambaStrategy implements IStrategy
@@ -13,39 +13,39 @@ public class BlackMambaStrategy implements IStrategy
     @Override
     public void run(JuniorRobot robot)
     {
-    	if(robot.scannedDistance < 0)
-    	{
-    		robot.turnAheadLeft(50,45);
-    		robot.turnAheadRight(50,45);    		
-    	} else {
-    		robot.turnRight(5 * turnDirection);
-    	}
+    		robot.turnAheadLeft(100,90);
+    		robot.turnGunLeft(180);
+    		robot.turnAheadRight(100,90);
+    		robot.turnGunLeft(180);
     }
 
     @Override
     public void onScannedRobot(JuniorRobot robot)
     {
-    	if (robot.scannedBearing >= 0) {
-			turnDirection = 1;
-		} else {
-			turnDirection = -1;
-		}
-
-		robot.turnRight(robot.scannedBearing);
-		robot.ahead(robot.scannedDistance + 5);
-		this.customFire(robot);
+    	while (robot.scannedDistance > -1)
+    	{
+    		this.customFire(robot);
+    		if (robot.scannedBearing >= 0) {
+    			turnDirection = 1;
+    		} else {
+    			turnDirection = -1;
+    		}
+    		this.customFire(robot);    		
+    	}
     }
 
     @Override
     public void onHitByBullet(JuniorRobot robot)
     {
-    	robot.turnBackLeft(10, 45);
+    	robot.back(150);
+    	robot.turnBackLeft(10, 90 * turnDirection - robot.hitByBulletBearing);
     }
 
     @Override
     public void onHitWall(JuniorRobot robot)
     {
-        robot.turnBackRight(50, 45);
+    	robot.back(150);
+        robot.turnBackRight(10, 90 * turnDirection);
     }
     
     private void customFire(JuniorRobot robot)
@@ -55,13 +55,15 @@ public class BlackMambaStrategy implements IStrategy
 	    	robot.turnGunTo(robot.scannedAngle);
 			if (distance < 50) {
 		    	robot.fire(4);
-	    	}else if (distance < 100) {
+	    	} else if (distance < 100) {
 		    	robot.fire(3);
 	    	} else if (distance < 200) {
 	    		robot.fire(2);
 	    	}  else if (distance < 350) {
 	    		robot.fire(1);
-	    	} 
+	    	} else {
+	    		robot.fire(0.5);
+	    	}
 		}
     }
 }

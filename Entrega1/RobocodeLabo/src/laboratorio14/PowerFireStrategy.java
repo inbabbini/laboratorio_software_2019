@@ -1,4 +1,4 @@
-package laboratorio;
+package laboratorio14;
 import robocode.JuniorRobot;
 
 public class PowerFireStrategy implements IStrategy
@@ -38,7 +38,9 @@ public class PowerFireStrategy implements IStrategy
 	    	}  else if (distance < 350) {
 		    	System.out.println("800");
 	    		robot.fire(1);
-	    	} 
+	    	} else {
+	    		robot.fire(0.5);
+	    	}
 	    	robot.ahead(20);
 		}
     }
