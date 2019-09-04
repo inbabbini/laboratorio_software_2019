@@ -7,8 +7,8 @@ import robocode.*;
 public class LaboRobot14 extends JuniorRobot
 {
 	//private IStrategy strategy = new TestStrategy();
-	//private IStrategy strategy = new TurretStrategy();
-	private IStrategy strategy = new BlackMambaStrategy();
+	private IStrategy strategy = new TurretStrategy();
+	//private IStrategy strategy = new BlackMambaStrategy();
 	//private IStrategy strategy = new PowerFireStrategy();
 	
 	@Override
