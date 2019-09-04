@@ -1,4 +1,4 @@
-package laboratorio14;
+package laboratorio14.Strategies;
 import robocode.*;
 
 public interface IStrategy

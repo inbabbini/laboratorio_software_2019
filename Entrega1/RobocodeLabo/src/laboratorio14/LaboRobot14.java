@@ -1,4 +1,5 @@
 package laboratorio14;
+import laboratorio14.Strategies.*;
 import robocode.*;
 
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/JuniorRobot.html
@@ -6,10 +7,14 @@ import robocode.*;
 
 public class LaboRobot14 extends JuniorRobot
 {
+	// Strategies
 	//private IStrategy strategy = new TestStrategy();
 	//private IStrategy strategy = new TurretStrategy();
 	private IStrategy strategy = new BlackMambaStrategy();
 	//private IStrategy strategy = new PowerFireStrategy();
+	
+	//Strategist
+	
 	
 	@Override
 	public void run()

@@ -1,4 +1,4 @@
-package laboratorio14;
+package laboratorio14.Strategies;
 import robocode.JuniorRobot;
 
 public class TurretStrategy implements IStrategy
