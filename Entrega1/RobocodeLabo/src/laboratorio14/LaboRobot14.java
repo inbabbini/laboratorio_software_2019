@@ -15,7 +15,6 @@ public class LaboRobot14 extends JuniorRobot
 	
 	//Strategist
 	
-	
 	@Override
 	public void run()
 	{
