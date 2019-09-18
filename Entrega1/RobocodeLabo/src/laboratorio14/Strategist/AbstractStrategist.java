@@ -11,7 +11,5 @@ public abstract class AbstractStrategist {
 	
 	public static AbstractStrategist GetInstance() throws Exception { throw new Exception("Not Implemented!"); };
 	
-	public abstract Boolean ShouldChangeStrategyFor(JuniorRobot robot);
-	
 	public abstract IStrategy GetStrategy(JuniorRobot robot);
 }

@@ -1,5 +1,5 @@
 package laboratorio14;
-import laboratorio14.Strategies.*;
+import laboratorio14.Strategist.*;
 import robocode.*;
 
 // API help : http://robocode.sourceforge.net/docs/robocode/robocode/JuniorRobot.html
@@ -9,17 +9,22 @@ public class LaboRobot14 extends JuniorRobot
 {
 	// Strategies
 	//private IStrategy strategy = new TestStrategy();
-	private IStrategy strategy = new TurretStrategy();
+	//private IStrategy strategy = new TurretStrategy();
 	//private IStrategy strategy = new BlackMambaStrategy();
 	//private IStrategy strategy = new PowerFireStrategy();
 	
-	//Strategist
+	//AggresiveStrategist strategist;
+	ConservativeStrategist strategist;
+	
+	public LaboRobot14() {
+		strategist = strategist.GetInstance();
+	}
 	
 	@Override
 	public void run()
 	{
-		this.strategy.paint(this);
-		this.strategy.run(this);		
+		strategist.GetStrategy(this).paint(this);
+		strategist.GetStrategy(this).run(this);
 	}
 
 	/**
@@ -28,8 +33,7 @@ public class LaboRobot14 extends JuniorRobot
 	@Override
 	public void onScannedRobot()
 	{
-		
-		this.strategy.onScannedRobot(this);
+		strategist.GetStrategy(this).onScannedRobot(this);
 	}
 
 	/**
@@ -38,7 +42,7 @@ public class LaboRobot14 extends JuniorRobot
 	@Override
 	public void onHitByBullet()
 	{
-		this.strategy.onHitByBullet(this);
+		strategist.GetStrategy(this).onHitByBullet(this);
 	}
 	
 	/**
@@ -47,6 +51,6 @@ public class LaboRobot14 extends JuniorRobot
 	@Override
 	public void onHitWall()
 	{
-		this.strategy.onHitWall(this);
+		strategist.GetStrategy(this).onHitWall(this);
 	}	
 }

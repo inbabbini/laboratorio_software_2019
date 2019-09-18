@@ -1,17 +1,20 @@
 package laboratorio14.Strategist;
 
-import laboratorio14.Strategies.IStrategy;
+import laboratorio14.Strategies.*;
 import robocode.JuniorRobot;
 
 public class AggresiveStrategist extends AbstractStrategist {
 	
+	PowerFireStrategy powerFireStrategy;
+	TurretStrategy turretStrategy;
 	
-	private AggresiveStrategist()
+	AggresiveStrategist()
 	{
-		super();
+		powerFireStrategy = new PowerFireStrategy();
+		turretStrategy = new TurretStrategy();
 	}
 	
-	public static AbstractStrategist GetInstance()
+	public static AggresiveStrategist GetInstance()
 	{
 		if (instance == null)
 		{
@@ -22,15 +25,9 @@ public class AggresiveStrategist extends AbstractStrategist {
 	}
 
 	@Override
-	public Boolean ShouldChangeStrategyFor(JuniorRobot robot) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public IStrategy GetStrategy(JuniorRobot robot) {
-		// TODO Auto-generated method stub
-		return null;
+		if (robot.energy < 20) return turretStrategy;
+		else return powerFireStrategy;
 	}
 
 }

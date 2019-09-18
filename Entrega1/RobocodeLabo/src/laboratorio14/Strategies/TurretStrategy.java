@@ -6,7 +6,7 @@ public class TurretStrategy implements IStrategy
 	@Override
 	public void paint(JuniorRobot robot)
     {
-        robot.setColors(JuniorRobot.black, JuniorRobot.white, JuniorRobot.black, JuniorRobot.white, JuniorRobot.red);
+        robot.setColors(JuniorRobot.red, JuniorRobot.white, JuniorRobot.black, JuniorRobot.white, JuniorRobot.red);
     }
 	
     @Override
